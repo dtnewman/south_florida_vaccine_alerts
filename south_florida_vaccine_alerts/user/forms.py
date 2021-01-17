@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from zappa_boilerplate.database import db_session
+from south_florida_vaccine_alerts.database import db_session
 from flask_wtf import Form
 from wtforms import StringField, PasswordField
 from wtforms.validators import DataRequired, Email, EqualTo, Length

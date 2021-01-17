@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import mock
 
-from zappa_boilerplate.test_utils import BaseTestCase
+from south_florida_vaccine_alerts.test_utils import BaseTestCase
 
 
 class TestViews(BaseTestCase):
@@ -24,8 +24,8 @@ class TestViews(BaseTestCase):
         response = self.client.get('/register')
         self.assert200(response)
 
-    @mock.patch("zappa_boilerplate.public.views.flash")  # mocks out the calls to flash in views.py
-    @mock.patch("zappa_boilerplate.utils.flash")  # mocks out the calls to flash (errors) in utils.py
+    @mock.patch("south_florida_vaccine_alerts.public.views.flash")  # mocks out the calls to flash in views.py
+    @mock.patch("south_florida_vaccine_alerts.utils.flash")  # mocks out the calls to flash (errors) in utils.py
     def test_register_and_login(self, mock_flash_errors, mock_flash):
         username = 'foo'
         email = 'foo@example.com'
@@ -71,7 +71,7 @@ class TestViews(BaseTestCase):
         self.assert200(response)
         mock_flash.assert_called_with('You are logged in.', 'success')
 
-    @mock.patch("zappa_boilerplate.utils.flash")
+    @mock.patch("south_florida_vaccine_alerts.utils.flash")
     def test_login_form_validation_error(self, mock_flash):
         username = 'foo'
 
@@ -84,7 +84,7 @@ class TestViews(BaseTestCase):
         self.assert200(response)
         mock_flash.assert_called_with('Password - This field is required.', 'warning')
 
-    @mock.patch("zappa_boilerplate.utils.flash")
+    @mock.patch("south_florida_vaccine_alerts.utils.flash")
     def test_register_error(self, mock_flash):
         username = 'foo'
         email = 'foo@example.com'
@@ -101,7 +101,7 @@ class TestViews(BaseTestCase):
         self.assert200(response)
         mock_flash.assert_called_with('Verify password - This field is required.', 'warning')
 
-    @mock.patch("zappa_boilerplate.utils.flash")
+    @mock.patch("south_florida_vaccine_alerts.utils.flash")
     def test_register_username_twice(self, mock_flash):
         username = 'foo'
         email1 = 'foo1@example.com'
@@ -123,7 +123,7 @@ class TestViews(BaseTestCase):
         self.assert200(response)
         mock_flash.assert_called_with('Username - Username already registered', 'warning')
 
-    @mock.patch("zappa_boilerplate.utils.flash")
+    @mock.patch("south_florida_vaccine_alerts.utils.flash")
     def test_register_email_twice(self, mock_flash):
         username1 = 'foo1'
         username2 = 'foo2'

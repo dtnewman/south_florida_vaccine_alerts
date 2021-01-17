@@ -4,7 +4,7 @@ import flask
 from flask_login import UserMixin
 import sqlalchemy
 
-from zappa_boilerplate.database import Base
+from south_florida_vaccine_alerts.database import Base
 
 
 class User(Base, UserMixin):

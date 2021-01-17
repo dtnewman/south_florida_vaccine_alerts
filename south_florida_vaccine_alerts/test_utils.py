@@ -3,9 +3,9 @@
 
 from flask_testing import TestCase
 
-from zappa_boilerplate import settings
-from zappa_boilerplate.app import create_app
-from zappa_boilerplate.database import db_session, init_db, drop_db
+from south_florida_vaccine_alerts import settings
+from south_florida_vaccine_alerts.app import create_app
+from south_florida_vaccine_alerts.database import db_session, init_db, drop_db
 
 APP = None
 

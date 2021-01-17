@@ -4,12 +4,12 @@ from flask import (Blueprint, request, render_template, flash, url_for,
                    redirect, jsonify)
 from flask_login import login_user, login_required, logout_user
 
-from zappa_boilerplate.database import db_session
-from zappa_boilerplate.extensions import login_manager
-from zappa_boilerplate.user.models import User
-from zappa_boilerplate.public.forms import LoginForm
-from zappa_boilerplate.user.forms import RegisterForm
-from zappa_boilerplate.utils import flash_errors
+from south_florida_vaccine_alerts.database import db_session
+from south_florida_vaccine_alerts.extensions import login_manager
+from south_florida_vaccine_alerts.user.models import User
+from south_florida_vaccine_alerts.public.forms import LoginForm
+from south_florida_vaccine_alerts.user.forms import RegisterForm
+from south_florida_vaccine_alerts.utils import flash_errors
 
 blueprint = Blueprint('public', __name__, static_folder="../static")
 

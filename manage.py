@@ -5,13 +5,13 @@ import sys
 from flask_script import Manager, Shell, Server
 from flask_migrate import MigrateCommand
 
-from zappa_boilerplate.app import create_app
-import zappa_boilerplate.models as models
-from zappa_boilerplate.database import db, db_session
+from south_florida_vaccine_alerts.app import create_app
+import south_florida_vaccine_alerts.models as models
+from south_florida_vaccine_alerts.database import db, db_session
 try:
-    import zappa_boilerplate.settings_local as settings
+    import south_florida_vaccine_alerts.settings_local as settings
 except ImportError:
-    import zappa_boilerplate.settings as settings
+    import south_florida_vaccine_alerts.settings as settings
 
 env = os.environ.get('env', 'Local')
 
@@ -37,7 +37,7 @@ def _make_context():
 @manager.command
 def test():
     import subprocess
-    command = 'nosetests --cover-erase --with-xunit --with-coverage --cover-package=zappa_boilerplate'.split(' ')
+    command = 'nosetests --cover-erase --with-xunit --with-coverage --cover-package=south_florida_vaccine_alerts'.split(' ')
     return subprocess.call(command)
 
 manager.add_command('server', Server())

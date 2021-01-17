@@ -2,15 +2,15 @@
 """The app module, containing the app factory function."""
 from flask import Flask, render_template
 
-from zappa_boilerplate.settings import Local
-from zappa_boilerplate.extensions import (
+from south_florida_vaccine_alerts.settings import Local
+from south_florida_vaccine_alerts.extensions import (
     db,
     login_manager,
     migrate,
 )
-from zappa_boilerplate.database import Base, init_engine
-from zappa_boilerplate.assets import assets
-from zappa_boilerplate import public, user
+from south_florida_vaccine_alerts.database import Base, init_engine
+from south_florida_vaccine_alerts.assets import assets
+from south_florida_vaccine_alerts import public, user
 
 def create_app(config_object=Local):
     """

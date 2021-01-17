@@ -9,8 +9,8 @@ nosetests.xml
 .webassets-cache
 
 # compiled assets
-/zappa_boilerplate/static/css/common.css
-/zappa_boilerplate/static/js/common.js
+/south_florida_vaccine_alerts/static/css/common.css
+/south_florida_vaccine_alerts/static/js/common.js
 
 # pycharm files
 /.idea/*

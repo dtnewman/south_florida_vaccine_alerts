@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from sqlalchemy.exc import IntegrityError
 
-import zappa_boilerplate.user.models as models
-from zappa_boilerplate.test_utils import BaseTestCase
+import south_florida_vaccine_alerts.user.models as models
+from south_florida_vaccine_alerts.test_utils import BaseTestCase
 
 
 class TestUser(BaseTestCase):

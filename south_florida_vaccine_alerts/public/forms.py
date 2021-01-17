@@ -3,7 +3,7 @@ from flask_wtf import Form
 from wtforms import StringField, PasswordField
 from wtforms.validators import DataRequired
 
-from zappa_boilerplate.user.models import User
+from south_florida_vaccine_alerts.user.models import User
 
 
 class LoginForm(Form):

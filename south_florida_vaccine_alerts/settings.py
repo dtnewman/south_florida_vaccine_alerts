@@ -19,7 +19,7 @@ class Local(Config):
     """Local configuration."""
     ENV = 'lcl'
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DB_CONNECTION_STRING") or 'postgresql://localhost:5432/zappa_boilerplate'
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DB_CONNECTION_STRING") or 'postgresql://localhost:5432/south_florida_vaccine_alerts'
 
 
 class Development(Config):

@@ -14,7 +14,7 @@ install: pip install -r requirements.txt; pip install -r requirements_test.txt;
 before_script:
   - psql -c 'create database zappa_boilerplate_test;' -U postgres
 
-script: "nosetests --with-coverage --cover-package=zappa_boilerplate"
+script: "nosetests --with-coverage --cover-package=south_florida_vaccine_alerts"
 
 after_success:
   coveralls
