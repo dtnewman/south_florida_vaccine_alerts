@@ -4,10 +4,10 @@ import flask
 from flask_login import UserMixin
 import sqlalchemy
 
-from south_florida_vaccine_alerts.database import Base
+from south_florida_vaccine_alerts.extensions import db
 
 
-class User(Base, UserMixin):
+class User(db.Model, UserMixin):
 
     __tablename__ = 'users'
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True)

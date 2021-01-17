@@ -12,17 +12,8 @@ from sqlalchemy.ext.declarative import declarative_base
 Column = db.Column
 relationship = relationship
 
-
-class Base(db.Model):
-    """Base model class"""
-    __abstract__ = True
-
-
 engine = None
 db_session = scoped_session(lambda: create_session(autocommit=False, autoflush=False, expire_on_commit=True, bind=engine))
-
-Base = declarative_base(cls=Base)
-Base.query = db_session.query_property()
 
 
 def init_engine(uri, **kwargs):

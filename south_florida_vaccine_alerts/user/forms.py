@@ -8,7 +8,7 @@ from .models import User
 
 
 class RegisterForm(Form):
-    username = StringField('Username',
+    name = StringField('Name',
                            validators=[DataRequired(), Length(min=3, max=25)])
     email = StringField('Email',
                         validators=[DataRequired(), Email(), Length(min=6, max=40)])
@@ -25,7 +25,7 @@ class RegisterForm(Form):
         initial_validation = super(RegisterForm, self).validate()
         if not initial_validation:
             return False
-        user = db_session.query(User).filter_by(username=self.username.data).first()
+        phone = db_session.query(User).filter_by(username=self.username.data).first()
         if user:
             self.username.errors.append("Username already registered")
             return False

@@ -8,7 +8,7 @@ from south_florida_vaccine_alerts.extensions import (
     login_manager,
     migrate,
 )
-from south_florida_vaccine_alerts.database import Base, init_engine
+from south_florida_vaccine_alerts.database import init_engine
 from south_florida_vaccine_alerts.assets import assets
 from south_florida_vaccine_alerts import public, user
 
@@ -32,7 +32,7 @@ def register_extensions(app):
     assets.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)
-    migrate.init_app(app, Base)
+    migrate.init_app(app, db)
     return None
 
 
