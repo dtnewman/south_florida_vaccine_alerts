@@ -11,20 +11,22 @@ class User(Base, UserMixin):
 
     __tablename__ = 'users'
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True)
-    username = sqlalchemy.Column(sqlalchemy.String(80), unique=True, nullable=False)
+    name = sqlalchemy.Column(sqlalchemy.String(200), unique=False, nullable=False)
+    phone = sqlalchemy.Column(sqlalchemy.String(20), unique=False, nullable=False)
     email = sqlalchemy.Column(sqlalchemy.String(80), unique=True, nullable=False)
+    sms_consent = sqlalchemy.Column(sqlalchemy.Boolean, unique=True, nullable=False)
 
-    password = sqlalchemy.Column(sqlalchemy.String(128), nullable=True)  # the hashed password
     created_at = sqlalchemy.Column(sqlalchemy.DateTime, nullable=False, default=datetime.datetime.utcnow)
 
-    def __init__(self, username, email, password):
-        self.username = username
+    def __init__(self, name, phone, email, sms_consent):
+        self.name = name
+        self.phone = phone
         self.email = email
-        self.set_password(password)
+        self.sms_consent = sms_consent
 
     @staticmethod
-    def create(session, username, email, password):
-        user = User(username, email, password)
+    def create(session, name, phone, email, sms_consent):
+        user = User(name, phone, email, sms_consent)
         session.add(user)
         session.flush()
         return user
@@ -38,12 +40,5 @@ class User(Base, UserMixin):
             return session.query(cls).filter(cls.id == user_id).first()
         return None
 
-    def set_password(self, password):
-        self.password = bcrypt.hashpw(password.encode('utf-8'),
-                                      bcrypt.gensalt(flask.current_app.config['BCRYPT_LOG_ROUNDS'])).decode('utf-8')
-
-    def check_password(self, value):
-        return bcrypt.checkpw(value.encode('utf-8'), self.password.encode('utf-8'))
-
     def __repr__(self):
-        return '<User({username!r})>'.format(username=self.username)
+        return '<User({id!r})>'.format(id=self.username)

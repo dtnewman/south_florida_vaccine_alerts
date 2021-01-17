@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Database module, including the SQLAlchemy database object and DB-related utilities.
 """
@@ -20,8 +19,7 @@ class Base(db.Model):
 
 
 engine = None
-db_session = scoped_session(lambda: create_session(autocommit=False, autoflush=False,
-                                                   expire_on_commit=True, bind=engine))
+db_session = scoped_session(lambda: create_session(autocommit=False, autoflush=False, expire_on_commit=True, bind=engine))
 
 Base = declarative_base(cls=Base)
 Base.query = db_session.query_property()
